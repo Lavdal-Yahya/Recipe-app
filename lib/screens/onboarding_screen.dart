@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/screens/home.dart';
+import 'package:recipe_app/screens/home_screen.dart';
 import '../constants/iamges_paths.dart';
 
 class OnboardingScreen extends StatelessWidget {
