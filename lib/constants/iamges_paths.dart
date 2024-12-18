@@ -20,4 +20,5 @@ class IamgesPaths {
   static String sun = "assets/sun-2-svgrepo-com.png";
   static String ai = "assets/Ai__2_-removebg-preview.png";
   static String search = "assets/search-alt-2-svgrepo-com.png";
+  static String auth = "assets/image-removebg-preview.png";
 }

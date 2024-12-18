@@ -66,50 +66,54 @@ class _IngredientRecipeDetailsScreenState extends State<IngredientRecipeDetailsS
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(
-          0,
-          h * .04,
-          0,
-          h * .04,
-        ),
-        child: Column(
-          children: [
-            PageHeading(),
-            FutureBuilder<Recipe>(
-              future: _recipeDetails,
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
-                } else if (snapshot.hasError) {
-                  return Center(
-                    child: Text("Error: ${snapshot.error}"),
-                  );
-                } else if (!snapshot.hasData) {
-                  return const Center(child: Text("No details available"));
-                } else {
-                  final recipe = snapshot.data!;
-                  return SingleChildScrollView(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.network(recipe.images, fit: BoxFit.cover),
-                        const SizedBox(height: 16),
-                        Text(recipe.name,
-                            style: Theme.of(context).textTheme.headlineSmall),
-                        const SizedBox(height: 16),
-                        Text("Instructions:",
-                            style: Theme.of(context).textTheme.titleMedium),
-                        ..._parseHtml(recipe.instructions ??
-                            "<p>No instructions provided.</p>"),
-                      ],
-                    ),
-                  );
-                }
-              },
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(
+              0,
+              h * .04,
+              0,
+              h * .04,
             ),
-          ],
+            child: Column(
+              children: [
+                PageHeading(),
+                FutureBuilder<Recipe>(
+                  future: _recipeDetails,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else if (snapshot.hasError) {
+                      return Center(
+                        child: Text("Error: ${snapshot.error}"),
+                      );
+                    } else if (!snapshot.hasData) {
+                      return const Center(child: Text("No details available"));
+                    } else {
+                      final recipe = snapshot.data!;
+                      return SingleChildScrollView(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.network(recipe.images, fit: BoxFit.cover),
+                            const SizedBox(height: 16),
+                            Text(recipe.name,
+                                style: Theme.of(context).textTheme.headlineSmall),
+                            const SizedBox(height: 16),
+                            Text("Instructions:",
+                                style: Theme.of(context).textTheme.titleMedium),
+                            ..._parseHtml(recipe.instructions ??
+                                "<p>No instructions provided.</p>"),
+                          ],
+                        ),
+                      );
+                    }
+                  },
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
