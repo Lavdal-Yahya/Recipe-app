@@ -60,7 +60,7 @@ class _BevragesScreenState extends State<BevragesScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  PageHeading(),
+                  const PageHeading(),
                   SizedBox(height: h * .01),
                   _isLoading
                       ? const Center(

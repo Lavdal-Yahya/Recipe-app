@@ -13,7 +13,7 @@ class TextFieldWidget extends StatelessWidget {
       height: h * .06,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(14),
-          boxShadow: [BoxShadow(color: Colors.black26, offset: Offset(0, 1), blurRadius: 2)]),
+          boxShadow: const [BoxShadow(color: Colors.black26, offset: Offset(0, 1), blurRadius: 2)]),
       child: TextField(
         style: TextStyle(
           fontSize: w * 0.04,
@@ -25,13 +25,13 @@ class TextFieldWidget extends StatelessWidget {
           fillColor: Colors.white,
           hintText: "What's cooking in your mind...?",
           hintStyle: TextStyle(color: Colors.grey, fontSize: w * .03),
-          contentPadding: EdgeInsets.symmetric(horizontal: 20),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 20),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
           focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
           suffixIcon: Icon(
             Icons.search,
-            color: Color(0xffeb4600),
+            color: const Color(0xffeb4600),
             size: w * .07,
           ),
         ),

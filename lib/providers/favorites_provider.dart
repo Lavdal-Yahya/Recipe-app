@@ -3,8 +3,10 @@ import 'package:recipe_app/models/recipe.dart';
 
 class FavoritesProvider with ChangeNotifier {
   final List<Recipe> _favorites = [];
+  final List<Recipe> _createdRecipes = [];
 
   List<Recipe> get favorites => _favorites;
+  List<Recipe> get createdRecipes => _createdRecipes;
 
   void addFavorite(Recipe recipe) {
     if (!_favorites.contains(recipe)) {
@@ -20,5 +22,10 @@ class FavoritesProvider with ChangeNotifier {
 
   bool isFavorite(Recipe recipe) {
     return _favorites.contains(recipe);
+  }
+
+  void addCreatedRecipe(Recipe recipe) {
+    _createdRecipes.add(recipe);
+    notifyListeners();
   }
 }

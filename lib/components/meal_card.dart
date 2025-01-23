@@ -20,7 +20,7 @@ class MealCard extends StatelessWidget {
         height: h * .4,
         decoration: BoxDecoration(
           color: const Color(0xFFF1F4F8),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               blurRadius: 8,
               color: Color(0x33000000),

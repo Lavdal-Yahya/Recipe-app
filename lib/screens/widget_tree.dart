@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe_app/models/auth.dart';
 import 'package:recipe_app/screens/home.dart';
@@ -18,9 +18,9 @@ class _WidgetTreeState extends State<WidgetTree> {
         stream: Auth().authStateChanges,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return Home();
+            return const Home();
           } else {
-            return LoginRegisterScreen();
+            return const LoginRegisterScreen();
           }
         });
   }

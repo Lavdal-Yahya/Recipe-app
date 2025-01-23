@@ -64,7 +64,7 @@ class _IngredientRecipeDetailsScreenState extends State<IngredientRecipeDetailsS
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
-    final w = MediaQuery.of(context).size.width;
+    // final w = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -77,7 +77,7 @@ class _IngredientRecipeDetailsScreenState extends State<IngredientRecipeDetailsS
             ),
             child: Column(
               children: [
-                PageHeading(),
+                const PageHeading(),
                 FutureBuilder<Recipe>(
                   future: _recipeDetails,
                   builder: (context, snapshot) {
